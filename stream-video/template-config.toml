@@ -1,0 +1,17 @@
+keypair = "path/to/device/id.json"
+gatekeeper_pubkey = "path/to/gatekeeper-pubkey.json"
+provider_pubkey = "path/to/provider-pubkey.json"
+fullnode = "fullnodeAddress"  # Can be an IPv4, IPv6, or a web address
+rpc_port = <Number>  # nodes default to 8899
+pubsub_port = <Number>  # nodes default to 8900
+gatekeeper_addr = "gatekeeperAddress"  # Can be an IPv4, IPv6, or a web address
+gatekeeper_port = <Number>
+listener_port = <Number>
+default_airdrop_lamports = <Number>
+default_contract_lamports = <Number>
+# Each destination can be an IPv4, IPv6, or a web address, but must include the port
+destinations = ["address:port", "address:port", "address:port"]
+# Images to display with their respective destinations
+images = ["image.png", "image.png", "image.png"]
+# Only change this if you moved exit-button.png, or if you aren't running from hthe stream-video directory
+exit_button_image = "exit-button.png"

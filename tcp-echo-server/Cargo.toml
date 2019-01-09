@@ -1,0 +1,8 @@
+[package]
+name = "tcp-echo-server"
+version = "0.2.0"
+authors = ["Solana Maintainers <maintainers@solana.com>"]
+edition = "2018"
+
+[dependencies]
+clap = "2.33.0"

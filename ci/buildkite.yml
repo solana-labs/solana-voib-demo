@@ -1,0 +1,11 @@
+steps:
+  - command: "ci/shellcheck.sh"
+    name: "shellcheck"
+    timeout_in_minutes: 20
+  - command: "ci/docker-run.sh --custom ci/docker ci/test-checks.sh"
+    label: "checks"
+    timeout: 30
+  - wait
+  - command: "ci/docker-run.sh --custom ci/docker ci/tests.sh"
+    label: "tests"
+    timeout: 30

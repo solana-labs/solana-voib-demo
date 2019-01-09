@@ -1,0 +1,12 @@
+[workspace]
+members = [
+  "bandwidth-prepay-program",
+  "bandwidth-prepay-api",
+  "bandwidth-tps",
+  "client",
+  "client-tester",
+  "gatekeeper",
+  "provider-drone",
+  "tcp-echo-server",
+  "stream-video",
+]

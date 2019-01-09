@@ -1,0 +1,13 @@
+#!/bin/bash -e
+
+#
+# Save target/ for the next CI build on this machine
+#
+(
+  set -x
+  d=$HOME/cargo-target-cache/"$BUILDKITE_LABEL"
+  mkdir -p "$d"
+  set -x
+  rsync -a --delete --link-dest="$PWD" target "$d"
+  du -hs "$d"
+)

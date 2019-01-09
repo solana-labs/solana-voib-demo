@@ -1,0 +1,13 @@
+[package]
+name = "bandwidth-prepay-program"
+version = "0.2.0"
+authors = ["Solana Maintainers <maintainers@solana.com>"]
+edition = "2018"
+
+[dependencies]
+bandwidth-prepay-api = { path = "../bandwidth-prepay-api", version = "0.2.0" }
+solana-sdk = "0.18.0"
+
+[lib]
+name = "bandwidth_prepay_program"
+crate-type = ["cdylib"]

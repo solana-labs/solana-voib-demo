@@ -1,0 +1,14 @@
+[package]
+name = "client-tester"
+version = "0.2.0"
+authors = ["Solana Maintainers <maintainers@solana.com>"]
+edition = "2018"
+
+[dependencies]
+clap = "2.33.0"
+client = { path = "../client", version = "0.2.0" }
+env_logger = "0.6.1"
+pbr = "1.0.1"
+provider-drone = { path = "../provider-drone", version = "0.2.0" }
+solana-client = "0.18.0"
+solana-sdk = "0.18.0"

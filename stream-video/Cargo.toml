@@ -1,0 +1,40 @@
+[package]
+name = "stream-video"
+version = "0.2.0"
+authors = ["Solana Maintainers <maintainers@solana.com>"]
+edition = "2018"
+
+[features]
+ui-only = []
+
+[dependencies]
+clap = "2.33.0"
+client = { path = "../client", version = "0.2.0" }
+custom_error = "1.6.0"
+env_logger = "0.6.1"
+gdk = "0.10.0"
+gdk-pixbuf = "0.6.0"
+gio = "0.6.0"
+glib = "0.7.1"
+gtk = "0.6.0"
+log = "0.4.6"
+os_pipe = "0.8"
+provider-drone = { path = "../provider-drone", version = "0.2.0" }
+pubsub-client = { path = "../pubsub-client", version = "0.2.0" }
+serde_json = "1.0.39"
+solana-client = "0.18.0"
+solana-sdk = "0.18.0"
+serde = "1.0.91"
+serde_derive = "1.0.91"
+toml = "0.5"
+
+[dev-dependencies]
+ws = "0.8.0"
+
+[[bin]]
+name = "stream_cli"
+path = "src/cli.rs"
+
+[[bin]]
+name = "stream_gui"
+path = "src/gui.rs"

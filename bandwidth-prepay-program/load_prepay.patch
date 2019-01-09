@@ -1,0 +1,24 @@
+diff --git a/genesis/Cargo.toml b/genesis/Cargo.toml
+index c99766d0..eede0856 100644
+--- a/genesis/Cargo.toml
++++ b/genesis/Cargo.toml
+@@ -9,6 +9,7 @@ license = "Apache-2.0"
+ homepage = "https://solana.com/"
+ 
+ [dependencies]
++bandwidth-prepay-api = { path = "../../bandwidth-prepay-api", version = "0.2.0" }
+ clap = "2.33.0"
+ serde_json = "1.0.39"
+ solana = { path = "../core", version = "0.15.0"  }
+diff --git a/genesis/src/main.rs b/genesis/src/main.rs
+index f175464d..95ef6e79 100644
+--- a/genesis/src/main.rs
++++ b/genesis/src/main.rs
+@@ -106,6 +106,7 @@ fn main() -> Result<(), Box<dyn error::Error>> {
+                 "solana_exchange_program".to_string(),
+                 solana_exchange_api::id(),
+             ),
++            ("bandwidth_prepay_program".to_string(), bandwidth_prepay_api::id()),
+         ]);
+ 
+     create_new_ledger(ledger_path, &genesis_block)?;
