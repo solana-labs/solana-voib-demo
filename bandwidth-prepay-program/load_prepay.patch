@@ -1,24 +1,37 @@
-diff --git a/genesis/Cargo.toml b/genesis/Cargo.toml
-index c99766d0..eede0856 100644
---- a/genesis/Cargo.toml
-+++ b/genesis/Cargo.toml
-@@ -9,6 +9,7 @@ license = "Apache-2.0"
- homepage = "https://solana.com/"
+diff --git a/genesis_programs/Cargo.toml b/genesis_programs/Cargo.toml
+index fb634f06..dbc8ea3d 100644
+--- a/genesis_programs/Cargo.toml
++++ b/genesis_programs/Cargo.toml
+@@ -9,6 +9,7 @@ homepage = "https://solana.com/"
+ edition = "2018"
  
  [dependencies]
 +bandwidth-prepay-api = { path = "../../bandwidth-prepay-api", version = "0.2.0" }
- clap = "2.33.0"
- serde_json = "1.0.39"
- solana = { path = "../core", version = "0.15.0"  }
-diff --git a/genesis/src/main.rs b/genesis/src/main.rs
-index f175464d..95ef6e79 100644
---- a/genesis/src/main.rs
-+++ b/genesis/src/main.rs
-@@ -106,6 +106,7 @@ fn main() -> Result<(), Box<dyn error::Error>> {
-                 "solana_exchange_program".to_string(),
-                 solana_exchange_api::id(),
-             ),
-+            ("bandwidth_prepay_program".to_string(), bandwidth_prepay_api::id()),
-         ]);
+ solana-bpf-loader-api = { path = "../programs/bpf_loader_api", version = "0.18.0" }
+ solana-bpf-loader-program = { path = "../programs/bpf_loader_program", version = "0.18.0" }
+ solana-budget-api = { path = "../programs/budget_api", version = "0.18.0" }
+diff --git a/genesis_programs/src/lib.rs b/genesis_programs/src/lib.rs
+index aaff00ea..0fdc5385 100644
+--- a/genesis_programs/src/lib.rs
++++ b/genesis_programs/src/lib.rs
+@@ -22,6 +22,12 @@ extern crate solana_vote_program;
  
-     create_new_ledger(ledger_path, &genesis_block)?;
+ pub fn get() -> Vec<(String, Pubkey)> {
+     vec![
++        (
++            "bandwidth_prepay_program".to_string(),
++            "9ecPa9EqqwcjzPTCNLisYaGskkc3j5b12xdcBZNP7sxK"
++                .parse::<Pubkey>()
++                .unwrap(),
++        ),
+         solana_system_program(),
+         solana_bpf_loader_program!(),
+         solana_budget_program!(),
+@@ -43,6 +49,7 @@ mod tests {
+     fn test_id_uniqueness() {
+         let mut unique = HashSet::new();
+         let ids = vec![
++            bandwidth_prepay_api::id(),
+             solana_budget_api::id(),
+             solana_config_api::id(),
+             solana_exchange_api::id(),

@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Demonstration of the tokenization buisness model to implement Voice over
+Demonstration of the tokenization business model to implement Voice over
 Internet & Blockchain (VoIB).
 
 ### Video Streaming Demo
@@ -77,8 +77,21 @@ project directory on the Pis.
 
 ### Deploying the bandwidth prepay program
 
-On the machine that will run the solana cluster, deploy the bandwidth-prepay
-program:
+This repository depends on a [Solana](https://github.com/solana-labs/solana)
+cluster, currently synced to v0.18.0. On the machine that will run the solana
+cluster, navigate to `solana-voib-demo` root and clone `solana` with the command:
+
+```shell
+$ git clone --branch v0.18.0 https://github.com/solana-labs/solana.git
+```
+
+Then build solana:
+
+```shell
+$ cd solana && cargo build --all
+```
+
+Deploy the bandwidth-prepay program:
 
 ```shell
 $ cd bandwidth-prepay-program
@@ -136,8 +149,8 @@ sender with [client-tester](./client-tester).
 ### Starting the Solana cluster
 
 See the [Solana Book](https://solana-labs.github.io/book/getting-started.html)
-for instructions on how to start a testnet. You can use either a single-node
-or multi-node testnet.
+for instructions on how to start a testnet from the `solana` repo. You can use
+either a single-node or multi-node testnet.
 
 ### Starting the provider drone
 

@@ -13,4 +13,4 @@ fi
 
 set -ex
 
-cargo run --manifest-path ../solana/keygen/Cargo.toml -- -o "$CONFIG_PATH"/id.json
+cargo run --manifest-path ../solana/keygen/Cargo.toml new -o "$CONFIG_PATH"/id.json
